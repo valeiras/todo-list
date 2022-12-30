@@ -1,5 +1,5 @@
 //jshint esversion:6
-import mongoose from "mongoose";
+mongoose = require("mongoose");
 
 if (!process.env.MONGO_URL) {
   throw new Error("Please add the MONGO_URL environment variable");

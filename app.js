@@ -1,4 +1,5 @@
 //jshint esversion:6
+import "./lib/db";
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -9,10 +10,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const mongoose = require("mongoose");
-mongoose.set('strictQuery', false);
-const uri = "mongodb://mongo:CvaYYCrDxY97KizzOGTt@containers-us-west-76.railway.app:6920/todolistDB";
-mongoose.connect(uri);
 
 const _ = require('lodash');
 const port = process.env.PORT || 3333;
@@ -135,5 +132,5 @@ app.get("/about", function (req, res) {
 });
 
 app.listen(port, function () {
-  console.log("Server started on port port");
+  console.log(`Server started on port ${port}`);
 });

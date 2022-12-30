@@ -9,12 +9,13 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const mongoose = require("Mongoose");
+const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
-const uri = "mongodb+srv://valeiras:admin123@cluster0.8cm5mle.mongodb.net/todolistDB";
+const uri = "mongodb://mongo:CvaYYCrDxY97KizzOGTt@containers-us-west-76.railway.app:6920/todolistDB";
 mongoose.connect(uri);
 
 const _ = require('lodash');
+const port = process.env.PORT || 3333;
 
 const itemSchema = new mongoose.Schema({
   name: String,
@@ -133,6 +134,6 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+app.listen(port, function () {
+  console.log("Server started on port port");
 });

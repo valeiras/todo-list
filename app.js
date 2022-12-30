@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const mongoose = require("Mongoose");
+const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
 const uri = "mongodb+srv://valeiras:admin123@cluster0.8cm5mle.mongodb.net/todolistDB";
 mongoose.connect(uri);
